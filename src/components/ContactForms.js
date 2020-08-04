@@ -41,6 +41,7 @@ function ContactForms(props) {
             name="fullname"
             value={values.fullname}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div className="form-row">
@@ -56,6 +57,7 @@ function ContactForms(props) {
               name="email"
               value={values.email}
               onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-group input-group col-md-6">
@@ -70,6 +72,7 @@ function ContactForms(props) {
               name="mobile"
               value={values.mobile}
               onChange={handleInputChange}
+              required
             />
           </div>
         </div>
@@ -80,6 +83,7 @@ function ContactForms(props) {
             value={values.address}
             name="address"
             onChange={handleInputChange}
+            required
           />
         </div>
         <div className="form-group">

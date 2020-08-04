@@ -28,6 +28,36 @@
   color: #61dafb;
 }
 
+.myname {
+  /* width: 200px; */
+  /* height: 50px; */
+  background-color: cadetblue;
+  /* padding: 15px; */
+  /* text-align: center; */
+  line-height: 50px;
+  animation: myname 3s linear infinite;
+}
+span {
+  font-size: 25px;
+  font-family: cursive;
+  color: white;
+  animation: myname 1s linear infinite;
+}
+@keyframes myname {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.70;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

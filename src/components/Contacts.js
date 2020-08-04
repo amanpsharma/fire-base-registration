@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ContactForms from "./ContactForms";
 import firebase from "../firebase";
+import '../App.css'
 function Contacts() {
   var [contacts, setContacts] = useState({});
   var [currentId, setCurrentId] = useState("");
@@ -40,6 +41,7 @@ function Contacts() {
         <div className="container">
           <h1 className="display-4 text-center">Contacts Registration</h1>
         </div>
+        <p className="text-center myname">Aman sharma</p>
       </div>
       <div className="row">
         <div className="col-md-5">
