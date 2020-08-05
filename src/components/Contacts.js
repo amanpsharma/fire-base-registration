@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ContactForms from "./ContactForms";
 import firebase from "../firebase";
-import '../App.css'
+import Swal from "sweetalert2";
+import "../App.css";
 function Contacts() {
   var [contacts, setContacts] = useState({});
   var [currentId, setCurrentId] = useState("");
@@ -18,6 +19,13 @@ function Contacts() {
   const addOrEdit = (obj) => {
     if (currentId === "")
       firebase.child("contacts").push(obj, (err) => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
         if (err) console.log(err);
         else setCurrentId("");
       });
@@ -28,12 +36,29 @@ function Contacts() {
       });
   };
   const deleteuser = (key) => {
-    if (window.confirm("Are You sure want to delete")) {
-      firebase.child(`contacts/${key}`).remove((err) => {
-        if (err) console.log(err);
-        else setCurrentId("");
-      });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        firebase.child(`contacts/${key}`).remove((err) => {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          if (err) console.log(err);
+          else setCurrentId("");
+        });
+      }
+    });
+    // if (window.confirm("Are You sure want to delete")) {
+    //   firebase.child(`contacts/${key}`).remove((err) => {
+    //     if (err) console.log(err);
+    //     else setCurrentId("");
+    //   });
+    // }
   };
   return (
     <div>
