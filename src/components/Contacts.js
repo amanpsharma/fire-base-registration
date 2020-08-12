@@ -31,6 +31,13 @@ function Contacts() {
       });
     else
       firebase.child(`contacts/${currentId}`).set(obj, (err) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been updated..",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         if (err) console.log(err);
         else setCurrentId("");
       });
@@ -94,7 +101,7 @@ function Contacts() {
                       <td>{contacts[id].email}</td>
                       <td>{contacts[id].mobile}</td>
                       <td>{contacts[id].address}</td>
-                      <td>
+                      <td style={{display:"flex"}}>
                         <a
                           className="btn text-primary"
                           onClick={() => {

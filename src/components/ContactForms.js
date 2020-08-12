@@ -57,6 +57,7 @@ function ContactForms(props) {
               name="email"
               value={values.email}
               onChange={handleInputChange}
+              pattern="^[a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,15})$"
               required
             />
           </div>
